@@ -1,5 +1,7 @@
 /* @flow */
 
+// ↑ flowのチェック対象になるために書く
+
 import config from '../config'
 import { initProxy } from './proxy'
 import { initState } from './state'
@@ -11,8 +13,11 @@ import { initProvide, initInjections } from './inject'
 import { extend, mergeOptions, formatComponentName } from '../util/index'
 
 let uid = 0
-
+// flowとは
+// 静的型付けで実行前に型エラーを検出
 export function initMixin (Vue: Class<Component>) {
+  // option?: Object
+  // の場合、_init()または_init(options)だけ許可
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
     // a uid
